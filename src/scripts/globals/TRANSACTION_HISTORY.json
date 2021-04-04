@@ -1,0 +1,38 @@
+{
+  "histories": [
+    {
+      "date": "02/04/2021",
+      "transactions": [
+        {
+          "id": "#210402-IZ41",
+          "name": "Ujang",
+          "status": "LUNAS",
+          "amount": 250000
+        },
+        {
+          "id": "#210402-IZ42",
+          "name": "Asep",
+          "status": "LUNAS",
+          "amount": 20000
+        }
+      ]
+    },
+    {
+    "date": "04/04/2021",
+      "transactions": [
+        {
+          "id": "#210404-FB56",
+          "name": "Ujang",
+          "status": "LUNAS",
+          "amount": 210000
+        },
+        {
+          "id": "#210404-FB57",
+          "name": "Asep",
+          "status": "LUNAS",
+          "amount": 90000
+        }
+      ]
+    }
+  ]
+}

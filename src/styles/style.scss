@@ -1,0 +1,301 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 14px;
+  font-family: Arial, Arial, Helvetica, sans-serif;
+  background-color: #f8f8f8;
+
+  .fixed-bottom {
+    position: fixed;
+    bottom: 0;
+  }
+}
+
+header {
+  .navbar {
+    width: 100%;
+
+    ul {
+      list-style-type: none;
+      background-color: #ffffff;
+      text-align: center;
+      display: flex;
+      flex-direction: row;
+  
+      li.nav-item {
+        display: inline-block;
+        flex: 1;
+  
+        a {
+          color: #444444;
+          text-decoration: none;
+          padding: 0.6em;
+          display: block;
+  
+          span {
+            display: block;
+          }
+        }
+
+        a:hover {
+          background-color: #ffffff;
+        }
+      }
+    }
+  }
+}
+
+main {
+  #content {
+    padding: 1.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    
+    #contentHeader {
+      .profile {
+        display: grid;
+        grid-template-areas:
+          'name notif'
+          'saldo topup'
+          'transaction transaction';
+        justify-content: space-between;
+        gap: 0.8em;
+
+        .profile__name {
+          grid-area: name;
+          color: #444444;
+
+          span {
+            color: black;
+          }
+        }
+
+        .profile__notif {
+          grid-area: notif;
+          text-align: right;
+          color: #444444;
+        }
+
+        .profile__saldo {
+          grid-area: saldo;
+          color: #444444;
+
+          span {
+            color: #0000aa;
+          }
+        }
+
+        .profile__topup {
+          grid-area: topup;
+          text-align: right;
+
+          button {
+            padding: 0.5em 1.5em;
+            background-color: #0000aa;
+            color: white;
+            border: 0;
+            border-radius: 1em;
+          }
+        }
+
+        .profile__transaction {
+          grid-area: transaction;
+          background-color: white;
+          border-radius: 0.5em;
+          
+          table {
+            width: 100%;
+
+            td {
+              padding: 1em;
+              text-align: center;
+              color: #444444;
+
+              span {
+                color: black;
+              }
+            }
+          }
+        }
+
+        .profile-item {
+          span {
+            display: block;
+          }
+        }
+      }
+
+      .inner-head {
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        grid-template-rows: repeat(2, auto);
+        row-gap: 0.5em;
+        text-align: center;
+        align-items: center;
+        justify-content: space-between;
+        color: #444444;
+
+        button {
+          background-color: transparent;
+          color: #444444;
+          border: 0;
+        }
+
+        #transactionSearch {
+          grid-column: span 3;
+          padding: 1em 0.5em;
+        }
+      }
+
+      .transaction-menu {
+        background-color: white;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        max-height: 0px;
+        transition: max-height 0.5s ease-in-out;
+
+        &.open {
+          max-height: 300px;
+        }
+
+        ul {
+          display: flex;
+          flex-direction: column;
+          list-style-type: none;
+
+          button {
+            background-color: transparent;
+            border: 0;
+            padding: 1em;
+            text-transform: uppercase;
+            color: #444444;
+            display: block;
+            width: 100%;
+            text-align: left;
+
+            &:hover {
+              background-color: #f3f3f3;
+            }
+          }
+        }
+      }
+    }
+
+    #contentBody {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      
+      .content-title h2 {
+        font-size: 1em;
+        font-weight: normal;
+      }
+
+      .content-menu#contentMenu {
+        .menu-card {
+          display: grid;
+          grid-template-areas:
+            'icon name'
+            'icon desc';
+          column-gap: 0.5em;
+          background-color: white;
+          border-radius: 0.5em;
+          padding: 0.5em;
+
+          span {
+            color: #3d3dff;
+          }
+
+          span.icon {
+            grid-area: icon;
+            width: 50px;
+            height: 50px;
+            font-size: 3.5em;
+          }
+
+          span.name {
+            grid-area: name;
+            font-size: 1.5em;
+            font-weight: normal;
+          }
+
+          span.desc {
+            grid-area: desc;
+            color: #444444;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+          }
+        }
+      }
+
+      .card-group {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        
+        &__header {
+          color: #888888;
+          display: flex;
+          justify-content: space-between;
+
+          .total {
+            color: black;
+          }
+        }
+
+        .card {
+          background-color: white;
+          border-radius: 0.5em;
+          box-shadow: 0 0 2px lightgray;
+          display: grid;
+          padding: 1em;
+          gap: 0.5em;
+          grid-template-columns: 15% auto 25%;
+          grid-template-areas: 
+            'icon id status'
+            'icon name amount';
+
+          .icon {
+            grid-area: icon;
+            color: limegreen;
+            display: grid;
+            place-items: center;
+          }
+
+          .id {
+            grid-area: id;
+            color: #444444;
+          }
+
+          .name {
+            grid-area: name;
+            color: #444444;
+          }
+
+          .status {
+            grid-area: status;
+            color: limegreen;
+            text-align: right;
+          }
+
+          .amount {
+            grid-area: amount;
+            color: #888888;
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+}
