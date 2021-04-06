@@ -16,6 +16,13 @@ const TransactionHistoryInitiator = {
     });
 
     this._searchHistory();
+
+    document.querySelectorAll('.transaction-menu button')
+      .forEach((button) => {
+        button.addEventListener('click', (event) => {
+          this._filterByButton(event.target.innerText);
+        });
+      });
   },
 
   _searchHistory() {
@@ -30,6 +37,20 @@ const TransactionHistoryInitiator = {
           .includes(searchQuery));
       this._renderHistory(filteredData);
     });
+  },
+
+  _filterByButton(filterKey) {
+    let _filterKey;
+    if (filterKey.toUpperCase() === 'SEMUA') {
+      _filterKey = '';
+    } else {
+      _filterKey = filterKey.toUpperCase();
+    }
+
+    const filteredData = this._objectToSearch
+      .filter((data) => data.status.toUpperCase()
+        .includes(_filterKey));
+    this._renderHistory(filteredData);
   },
 
   _renderHistory(datas) {

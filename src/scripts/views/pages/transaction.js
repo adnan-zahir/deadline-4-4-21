@@ -21,7 +21,7 @@ const Transaction = {
           <li><button>Semua</button></li>
           <li><button>Lunas</button></li>
           <li><button>Hutang</button></li>
-          <li><button>Dibatalkan</button></li>
+          <li><button>Batal</button></li>
         </ul>
       </nav>
     </section>
