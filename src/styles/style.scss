@@ -15,6 +15,11 @@ body {
     position: fixed;
     bottom: 0;
   }
+
+  a,
+  button {
+    cursor: pointer;
+  }
 }
 
 header {
@@ -188,6 +193,28 @@ main {
           }
         }
       }
+
+      .laporan-menu {
+        grid-column: span 3;
+
+        ul {
+          list-style-type: none;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          li {
+            flex: 1;
+            display: block;
+
+            button {
+              margin: 0 auto;
+              display: block;
+              padding: 0.5em 0;
+            }
+          }
+        }
+      }
     }
 
     #contentBody {
@@ -294,6 +321,101 @@ main {
             grid-area: amount;
             color: #888888;
             text-align: right;
+          }
+        }
+      }
+
+      .summary {
+        &>span {
+          color: #888888;
+          font-size: 0.8em;
+        }
+
+        &-table {
+          background-color: white;
+          border-radius: 0.5em;
+          box-shadow: 0 0 2px lightgray;
+          width: 100%;
+          
+          td {
+            padding: 0.5em;
+            text-align: center;
+            color: #888888;
+
+            span {
+              display: block;
+              color: black;
+            }
+          }
+
+          tr:last-child {
+            td {
+              background-color: rgba(0, 207, 0, 0.089);
+              border-radius: 0.5em;
+              justify-content: space-between;
+
+              span {
+                color: rgb(16, 163, 16);
+              }
+            }
+          }
+        }
+      }
+
+      .sale-report {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+
+        .content-title {
+          color: #888888;
+          display: flex;
+          justify-content: space-between;
+
+          span {
+            color: black;
+          }
+        }
+
+        .sale-report-table-container {
+          display: grid;
+          gap: 1em;
+        }
+
+        table.sale-report-table {
+          color: #444444;
+          background-color: white;
+          box-shadow: 0 0 0 1px #dadada;
+          border-collapse: collapse;
+          border-radius: 0.5em;
+          border-style: hidden;
+          padding: 0.5em;
+
+          td, th {
+            vertical-align: top;
+            width: 33%;
+            border: 1px solid #dadada;
+            padding: 0.5em;
+
+            span {
+              display: block;
+            }
+          }
+
+          th span {
+            text-align: right;
+            font-weight: lighter;
+            margin-top: 0.5em;
+            color: #888888;
+          }
+
+          td:not(:first-child) {
+            text-align: right;
+          }
+
+          td:last-child {
+            background-color: rgba(0, 207, 0, 0.089);
+            color: rgb(16, 163, 16);
           }
         }
       }

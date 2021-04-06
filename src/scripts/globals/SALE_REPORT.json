@@ -1,0 +1,33 @@
+{
+  "summary": {
+    "startDate": "28 Mar 2021",
+    "totalPenjualan": 211100,
+    "totalModal": 201000
+  },
+  "products": [
+    {
+      "soldDate": "02/04/2021",
+      "name": "PRINTER THERMAL",
+      "soldAmount": 1,
+      "totalPrice": 210000,
+      "totalProfit": 10000,
+      "type": "BARANG"
+    },
+    {
+      "soldDate": "30/03/2021",
+      "name": "PEPSODENT 75G HERBAL",
+      "soldAmount": 1,
+      "totalPrice": 1100,
+      "totalProfit": 100,
+      "type": "PPOB"
+    },
+    {
+      "soldDate": "30/03/2021",
+      "name": "GOOD TIME BISKUIT",
+      "soldAmount": 2,
+      "totalPrice": 16000,
+      "totalProfit": 1000,
+      "type": "BARANG"
+    }
+  ]
+}

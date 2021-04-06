@@ -37,7 +37,51 @@ const transactionHistoryCardTemplate = (transaction, amount) => {
 `;
 };
 
+const saleReportTableHeadTemplate = (date) => `
+<table class="sale-report-table">
+  <thead>
+    <tr>
+      <th colspan="3">
+        ${date}
+      </th>
+    </tr>
+    <tr>
+      <th>
+        Produk
+      </th>
+      <th>
+        Penjualan
+        <span id="subTotalPenjualanTable" class="currency"></span>
+      </th>
+      <th>
+        Keuntungan
+        <span id="subTotalKeuntunganTable" class="currency"></span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+`;
+
+const saleReportTableBodyTemplate = (product, currencies) => `
+<tr>
+  <td>
+    <span>${product.name}</span>
+    <span>x${product.soldAmount}</span>
+  </td>
+  <td class="currency total-price">
+    ${currencies.totalPrice}
+  </td>
+  <td class="currency total-profit">
+    ${currencies.totalProfit}
+  </td>
+</tr>
+`;
+
 export {
   transactionHistoryGroupTemplate,
   transactionHistoryCardTemplate,
+  saleReportTableHeadTemplate,
+  saleReportTableBodyTemplate,
 };
