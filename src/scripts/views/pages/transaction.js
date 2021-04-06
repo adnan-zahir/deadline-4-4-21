@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import DrawerInitiator from '../../utils/drawer-initiator';
-import { transactionHistoryCardTemplate, transactionHistoryGroupTemplate } from '../templates/template-creator';
+import TransactionHistoryInitiator from '../../utils/transaction-history-initiator';
 
 const Transaction = {
   async render() {
@@ -26,7 +26,7 @@ const Transaction = {
       </nav>
     </section>
     <section id="contentBody">
-    </>`;
+    </section>`;
   },
 
   async afterRender() {
@@ -46,47 +46,14 @@ const Transaction = {
     document.querySelector('#navTransaction a')
       .style.color = '#3d3dff';
 
-    this._formatter = new Intl.NumberFormat('id-ID', {
-      style: 'currency',
-      currency: 'IDR',
-    });
-
-    this._fetchHistory();
-  },
-
-  _fetchHistory() {
     // eslint-disable-next-line global-require
-    const { histories } = require('../../globals/TRANSACTION_HISTORY.json');
-    this._renderHistoryGroup(histories);
-  },
+    const { transactions } = require('../../globals/TRANSACTION_HISTORY.json');
 
-  _renderHistoryGroup(histories) {
-    histories.forEach((history) => {
-      const { date } = history;
-      const { transactions } = history;
-
-      document.querySelector('#contentBody')
-        .innerHTML += transactionHistoryGroupTemplate(date);
-
-      this._renderHistoryCard(transactions);
+    TransactionHistoryInitiator.init({
+      objectToSearch: transactions,
+      inputBox: document.querySelector('#transactionSearch'),
+      container: document.querySelector('#contentBody'),
     });
-  },
-
-  _renderHistoryCard(transactions) {
-    let total = 0;
-
-    transactions.forEach((transaction) => {
-      total += transaction.amount;
-      const amount = this._formatter.format(transaction.amount);
-      const cardGroups = document.querySelectorAll('.card-group');
-      Object.values(cardGroups).slice(-1).pop()
-        .innerHTML += transactionHistoryCardTemplate(transaction, amount);
-    });
-
-    Object.values(
-      document.querySelectorAll('.total'),
-    ).slice(-1).pop()
-      .innerHTML = this._formatter.format(total);
   },
 };
 

@@ -230,6 +230,7 @@ main #content #contentBody {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 1em;
+  margin-bottom: 3em;
 }
 
 main #content #contentBody .content-title h2 {
@@ -315,8 +316,8 @@ main #content #contentBody .card-group .card {
   display: grid;
   padding: 1em;
   gap: 0.5em;
-  -ms-grid-columns: 15% auto 25%;
-      grid-template-columns: 15% auto 25%;
+  -ms-grid-columns: 15% auto auto;
+      grid-template-columns: 15% auto auto;
       grid-template-areas: 'icon id status' 'icon name amount';
 }
 
@@ -359,5 +360,23 @@ main #content #contentBody .card-group .card .amount {
   grid-area: amount;
   color: #888888;
   text-align: right;
+}
+
+main #content aside.overlay {
+  background-color: #f8f8f8;
+  z-index: 1000;
+  display: none;
+}
+
+main #content aside.overlay.full {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+main #content aside.overlay.active {
+  display: block;
 }
 /*# sourceMappingURL=style.css.map */

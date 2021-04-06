@@ -194,6 +194,7 @@ main {
       display: flex;
       flex-direction: column;
       gap: 1em;
+      margin-bottom: 3em;
       
       .content-title h2 {
         font-size: 1em;
@@ -261,7 +262,7 @@ main {
           display: grid;
           padding: 1em;
           gap: 0.5em;
-          grid-template-columns: 15% auto 25%;
+          grid-template-columns: 15% auto auto;
           grid-template-areas: 
             'icon id status'
             'icon name amount';
@@ -295,6 +296,24 @@ main {
             text-align: right;
           }
         }
+      }
+    }
+
+    aside.overlay {
+      background-color: #f8f8f8;
+      z-index: 1000;
+      display: none;
+      
+      &.full {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      &.active {
+        display: block;
       }
     }
   }

@@ -49,10 +49,8 @@ const Home = {
   },
 
   async afterRender() {
-    const name = 'Adnan ZZ'; // fetch
-    const monthlyTransaction = 200000; // fetch
-    const monthlyProfit = 120200; // fetch
-    const saldo = 50000; // fetch
+    // eslint-disable-next-line global-require
+    const PROFILE = require('../../globals/PROFILE_DATA.json');
 
     const formatter = new Intl.NumberFormat('id-ID', {
       style: 'currency',
@@ -60,16 +58,16 @@ const Home = {
     });
 
     document.querySelector('.profile__name span')
-      .innerHTML = name.toUpperCase();
+      .innerHTML = PROFILE.name.toUpperCase();
 
     document.querySelector('.profile__saldo span')
-      .innerHTML = formatter.format(saldo);
+      .innerHTML = formatter.format(PROFILE.saldo);
 
     document.querySelector('.profile__transaction span#monthlyTransaction')
-      .innerHTML = formatter.format(monthlyTransaction);
+      .innerHTML = formatter.format(PROFILE.monthlyTransaction);
 
     document.querySelector('.profile__transaction span#monthlyProfit')
-      .innerHTML = formatter.format(monthlyProfit);
+      .innerHTML = formatter.format(PROFILE.monthlyProfit);
 
     // nav indicator
     document.querySelectorAll('.nav-item a')

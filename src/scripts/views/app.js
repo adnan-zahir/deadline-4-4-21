@@ -4,19 +4,17 @@ import UrlParser from '../routes/url-parser';
 
 class App {
   constructor({
-    // header,
     content,
-    // footer,
   }) {
-    // this._header = header;
     this._content = content;
-    // this._footer = footer;
   }
 
   async renderPage() {
     const url = UrlParser.parseActiveUrlWithCombiner();
     const page = routes[url];
-    this._content.innerHTML = await page.render();
+    this._content.innerHTML = `${await page.render()}
+      <aside class="overlay">a</aside>
+      <aside class="overlay full"></aside>`;
     await page.afterRender();
   }
 }
