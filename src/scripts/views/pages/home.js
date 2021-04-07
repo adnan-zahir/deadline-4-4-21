@@ -40,9 +40,11 @@ const Home = {
     </div>
     <div class="content-menu" id="contentMenu">
       <div class="menu-card">
-        <span class="material-icons icon">attach_money</span>
-        <span class="name">Kasir</span>
-        <span class="desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero accusamus commodi dicta ullam a expedita?</span>
+        <button class="overlay-button" type="button">
+          <span class="material-icons icon">attach_money</span>
+          <span class="name">Kasir</span>
+          <span class="desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero accusamus commodi dicta ullam a expedita?</span>
+        </button>
       </div>
     </div>
   </section>`;
@@ -50,7 +52,7 @@ const Home = {
 
   async afterRender() {
     // eslint-disable-next-line global-require
-    const PROFILE = require('../../globals/PROFILE_DATA.json');
+    const PROFILE = require('../../globals/DATA.json').profile;
 
     const formatter = new Intl.NumberFormat('id-ID', {
       style: 'currency',

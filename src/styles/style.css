@@ -273,7 +273,7 @@ main #content #contentBody .content-title h2 {
   font-weight: normal;
 }
 
-main #content #contentBody .content-menu#contentMenu .menu-card {
+main #content #contentBody .content-menu#contentMenu .menu-card button {
   display: -ms-grid;
   display: grid;
       grid-template-areas: 'icon name' 'icon desc';
@@ -282,13 +282,17 @@ main #content #contentBody .content-menu#contentMenu .menu-card {
   background-color: white;
   border-radius: 0.5em;
   padding: 0.5em;
+  border: 0;
+  text-align: left;
+  -webkit-box-shadow: 0 0 0 1px #dddddd;
+          box-shadow: 0 0 0 1px #dddddd;
 }
 
-main #content #contentBody .content-menu#contentMenu .menu-card span {
+main #content #contentBody .content-menu#contentMenu .menu-card button span {
   color: #3d3dff;
 }
 
-main #content #contentBody .content-menu#contentMenu .menu-card span.icon {
+main #content #contentBody .content-menu#contentMenu .menu-card button span.icon {
   -ms-grid-row: 1;
   -ms-grid-row-span: 2;
   -ms-grid-column: 1;
@@ -298,7 +302,7 @@ main #content #contentBody .content-menu#contentMenu .menu-card span.icon {
   font-size: 3.5em;
 }
 
-main #content #contentBody .content-menu#contentMenu .menu-card span.name {
+main #content #contentBody .content-menu#contentMenu .menu-card button span.name {
   -ms-grid-row: 2;
   -ms-grid-column: 2;
   grid-area: name;
@@ -306,7 +310,7 @@ main #content #contentBody .content-menu#contentMenu .menu-card span.name {
   font-weight: normal;
 }
 
-main #content #contentBody .content-menu#contentMenu .menu-card span.desc {
+main #content #contentBody .content-menu#contentMenu .menu-card button span.desc {
   -ms-grid-row: 2;
   -ms-grid-column: 2;
   grid-area: desc;

@@ -229,7 +229,7 @@ main {
       }
 
       .content-menu#contentMenu {
-        .menu-card {
+        .menu-card button {
           display: grid;
           grid-template-areas:
             'icon name'
@@ -238,6 +238,9 @@ main {
           background-color: white;
           border-radius: 0.5em;
           padding: 0.5em;
+          border: 0;
+          text-align: left;
+          box-shadow: 0 0 0 1px #dddddd;
 
           span {
             color: #3d3dff;

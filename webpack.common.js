@@ -68,15 +68,37 @@ module.exports = {
       ],
     }),
     new WebpackPwaManifest({
-      name: 'Eat n Eat',
-      short_name: 'EnE',
-      description: 'Application for finding your favorite restaurants.',
-      background_color: '#f8dc81',
+      name: 'PWA',
+      short_name: 'PWA',
+      description: 'Progressive Web App.',
+      background_color: '#3d3dff',
+      theme_color: '#3d3dff',
       crossorigin: 'use-credentials',
       icons: [
         {
           src: path.resolve('src/public/icons/icon.png'),
           sizes: [96, 128, 192, 256, 512],
+        },
+        {
+          src: path.resolve('src/public/icons/icon.png'),
+          size: '1024x1024',
+        },
+        {
+          src: path.resolve('src/public/icons/icon.png'),
+          size: '1024x1024',
+          purpose: 'maskable',
+        },
+        {
+          src: path.resolve('src/public/icons/icon.png'),
+          sizes: [120, 152, 167, 180, 1024],
+          destination: path.join('icons', 'ios'),
+          ios: true,
+        },
+        {
+          src: path.resolve('src/public/icons/icon.png'),
+          size: 1024,
+          destination: path.join('icons', 'ios'),
+          ios: 'startup',
         },
       ],
     }),

@@ -59,7 +59,7 @@ const Report = {
 
   async afterRender() {
     // eslint-disable-next-line global-require
-    const REPORT = require('../../globals/SALE_REPORT.json');
+    const REPORT = require('../../globals/DATA.json').sale_report;
     const { summary, products } = REPORT;
 
     const months = [
@@ -103,7 +103,7 @@ const Report = {
         });
 
         // eslint-disable-next-line no-return-assign
-        filterButtons.forEach((button) => button.style.borderBottom = '0');
+        filterButtons.forEach((otherButton) => otherButton.style.borderBottom = '0');
 
         event.target.style.borderBottom = '1px solid #3d3dff';
       });

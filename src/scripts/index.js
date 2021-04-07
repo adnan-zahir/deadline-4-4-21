@@ -1,5 +1,6 @@
 import 'regenerator-runtime';
 import '../styles/style.css';
+import swRegister from './utils/sw-register';
 import App from './views/app';
 
 // eslint-disable-next-line no-new
@@ -13,4 +14,5 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', () => {
   app.renderPage();
+  swRegister();
 });
