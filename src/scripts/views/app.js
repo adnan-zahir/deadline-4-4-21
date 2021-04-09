@@ -13,7 +13,7 @@ class App {
     const url = UrlParser.parseActiveUrlWithCombiner();
     const page = routes[url];
     this._content.innerHTML = `${await page.render()}
-      <aside class="overlay">a</aside>
+      <aside class="overlay"></aside>
       <aside class="overlay full"></aside>`;
     await page.afterRender();
   }

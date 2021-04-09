@@ -4,14 +4,14 @@ import docReady from './doc-ready';
 
 const SaleReportTableInitiator = {
   init({
-    products,
+    REPORT,
     container,
     filter,
     totalSold,
   }) {
-    this._products = products;
+    this.REPORT = REPORT;
     this._container = container;
-    this._totalSold = totalSold;
+    this._totalSoldContainer = totalSold;
     this._formatter = new Intl.NumberFormat('id-ID', {
       style: 'currency',
       currency: 'IDR',
@@ -21,47 +21,47 @@ const SaleReportTableInitiator = {
     this._totalPenjualan = 0;
     this._totalModal = 0;
     this._totalKeuntungan = 0;
+    this._totalSold = 0;
 
     this._filter = (filter.toUpperCase() === 'SEMUA'
       ? '' : filter.toUpperCase());
-    this._filterReport();
+    this._renderReport();
   },
 
-  _filterReport() {
-    const filteredProducts = this._products
-      .filter((product) => product.type.toUpperCase().includes(this._filter));
-
-    this._renderReport(filteredProducts);
-  },
-
-  _renderReport(products) {
+  _renderReport() {
     this._container
       .innerHTML = '';
 
     let currentDate = '';
 
-    products.forEach((product) => {
-      const { soldDate } = product;
+    const transactionsLunas = this.REPORT.transactions
+      .slice().reverse().filter(
+        ({ status }) => status.toUpperCase() === 'LUNAS' || status.toUpperCase() === 'HUTANG',
+      );
 
-      if (currentDate !== soldDate) { // new table head
-        currentDate = soldDate;
-
-        const date = soldDate.replaceAll('/', '-');
-
+    transactionsLunas.forEach((transaction) => {
+      if (transaction.date !== currentDate) {
+        const date = transaction.date.replaceAll('/', '-');
         this._renderReportTableHead(date);
-        this._renderReportTableBody(product, {
-          totalPrice: this._formatter.format(product.totalPrice),
-          totalProfit: this._formatter.format(product.totalProfit),
-        });
+        currentDate = transaction.date;
+        transaction.products.forEach((product) => this._filterReport(product));
       } else {
-        this._renderReportTableBody(product, {
-          totalPrice: this._formatter.format(product.totalPrice),
-          totalProfit: this._formatter.format(product.totalProfit),
-        });
+        transaction.products.forEach((product) => this._filterReport(product));
       }
     });
+  },
 
-    this._totalSold.innerHTML = `${products.length} Produk Terjual`;
+  _filterReport(product) {
+    if (product.type.toUpperCase().includes(this._filter)) {
+      return this._renderReportTableBody(product, {
+        totalPrice: this._formatter.format(product.productPrice
+          * product.soldAmount),
+        totalProfit: this._formatter.format((product.productPrice
+          - product.productModal)
+          * product.soldAmount),
+      });
+    }
+    return false;
   },
 
   _renderReportTableHead(date) {
@@ -77,10 +77,17 @@ const SaleReportTableInitiator = {
     Object.values(tBody).slice(-1).pop()
       .innerHTML += saleReportTableBodyTemplate(product, currencies);
 
-    this._totalPenjualan += product.totalPrice;
-    this._totalKeuntungan += product.totalProfit;
-    this._subTotalPenjualanTable += product.totalPrice;
-    this._subTotalKeuntunganTable += product.totalProfit;
+    this._totalPenjualan += product.productPrice
+      * product.soldAmount;
+    this._totalKeuntungan += (product.productPrice
+      - product.productModal)
+      * product.soldAmount;
+    this._subTotalPenjualanTable += product.productPrice
+    * product.soldAmount;
+    this._subTotalKeuntunganTable += (product.productPrice
+      - product.productModal)
+      * product.soldAmount;
+    this._totalSold += product.soldAmount;
 
     this._addSubTotal();
     this._afterRender();
@@ -104,6 +111,7 @@ const SaleReportTableInitiator = {
         .innerHTML = this._formatter.format(this._totalKeuntungan);
       document.querySelector('#totalModal')
         .innerHTML = this._formatter.format(this._totalPenjualan - this._totalKeuntungan);
+      this._totalSoldContainer.innerHTML = `${this._totalSold} Produk Terjual`;
     });
   },
 };

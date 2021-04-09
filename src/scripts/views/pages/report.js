@@ -60,25 +60,25 @@ const Report = {
   async afterRender() {
     // eslint-disable-next-line global-require
     const REPORT = require('../../globals/DATA.json').sale_report;
-    const { summary, products } = REPORT;
 
-    const months = [
-      'Jan',
-      'Feb',
-      'Mar',
-      'Apr',
-      'May',
-      'Jun',
-      'Jul',
-      'Aug',
-      'Sep',
-      'Oct',
-      'Nov',
-      'Dec',
-    ];
+    // const months = [
+    //   'Jan',
+    //   'Feb',
+    //   'Mar',
+    //   'Apr',
+    //   'May',
+    //   'Jun',
+    //   'Jul',
+    //   'Aug',
+    //   'Sep',
+    //   'Oct',
+    //   'Nov',
+    //   'Dec',
+    // ];
 
-    document.querySelector('#dateRange')
-      .innerHTML = `${summary.startDate} - ${new Date().getDate()} ${months[new Date().getMonth()]} ${new Date().getFullYear()}`;
+    // document.querySelector('#dateRange')
+    //   .innerHTML = `${REPORT.sale_report.startDate}
+    //     - ${new Date().getDate()} ${months[new Date().getMonth()]} ${new Date().getFullYear()}`;
 
     // nav indicator
     document.querySelectorAll('.nav-item a')
@@ -93,19 +93,19 @@ const Report = {
 
     filterButtons.forEach((button) => {
       button.addEventListener('click', (event) => {
-        const choice = event.target.getAttribute('data-filter');
-
-        SaleReportTableInitiator.init({
-          products,
-          container: document.querySelector('.sale-report-table-container'),
-          filter: choice,
-          totalSold: document.querySelector('.content-title>span'),
-        });
-
         // eslint-disable-next-line no-return-assign
         filterButtons.forEach((otherButton) => otherButton.style.borderBottom = '0');
 
         event.target.style.borderBottom = '1px solid #3d3dff';
+
+        const choice = event.target.getAttribute('data-filter');
+
+        SaleReportTableInitiator.init({
+          REPORT,
+          container: document.querySelector('.sale-report-table-container'),
+          filter: choice,
+          totalSold: document.querySelector('.content-title>span'),
+        });
       });
     });
 

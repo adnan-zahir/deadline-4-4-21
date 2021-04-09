@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 const Home = {
   async render() {
     return `<section id="contentHeader">
@@ -11,10 +12,12 @@ const Home = {
         <span>Rp 0</span>
       </div>
       <div class="profile-item profile__notif">
-        <span class="material-icons">notifications_none</span>
+        <a href="#/home&notif" class="overlay-button notif-button">
+          <span class="material-icons">notifications_none</span>
+        </a>
       </div>
       <div class="profile-item profile__topup">
-        <button>Top Up</button>
+        <button class="overlay-button topup-button">Top Up</button>
       </div>
       <div class="profile-item profile__transaction">
         <table>
@@ -40,7 +43,7 @@ const Home = {
     </div>
     <div class="content-menu" id="contentMenu">
       <div class="menu-card">
-        <button class="overlay-button" type="button">
+        <button class="overlay-button kasir-button" type="button">
           <span class="material-icons icon">attach_money</span>
           <span class="name">Kasir</span>
           <span class="desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero accusamus commodi dicta ullam a expedita?</span>
@@ -52,24 +55,12 @@ const Home = {
 
   async afterRender() {
     // eslint-disable-next-line global-require
-    const PROFILE = require('../../globals/DATA.json').profile;
+    this.PROFILE = require('../../globals/DATA.json');
 
-    const formatter = new Intl.NumberFormat('id-ID', {
+    this._formatter = new Intl.NumberFormat('id-ID', {
       style: 'currency',
       currency: 'IDR',
     });
-
-    document.querySelector('.profile__name span')
-      .innerHTML = PROFILE.name.toUpperCase();
-
-    document.querySelector('.profile__saldo span')
-      .innerHTML = formatter.format(PROFILE.saldo);
-
-    document.querySelector('.profile__transaction span#monthlyTransaction')
-      .innerHTML = formatter.format(PROFILE.monthlyTransaction);
-
-    document.querySelector('.profile__transaction span#monthlyProfit')
-      .innerHTML = formatter.format(PROFILE.monthlyProfit);
 
     // nav indicator
     document.querySelectorAll('.nav-item a')
@@ -79,6 +70,48 @@ const Home = {
       });
     document.querySelector('#navHome a')
       .style.color = '#3d3dff';
+
+    this._getProfile();
+  },
+
+  _getProfile() {
+    const transactionsLunas = this.PROFILE.sale_report.transactions.filter(
+      ({ status }) => status.toUpperCase() === 'LUNAS',
+    );
+
+    const thisMonthTransactions = transactionsLunas.filter(
+      ({ date }) => date.split('/')[1] === `0${new Date().getMonth() + 1}`,
+    );
+
+    const thisMonthTransactionProducts = [];
+    thisMonthTransactions.forEach(({ products }) => {
+      products.forEach((product) => thisMonthTransactionProducts.push(product));
+    });
+
+    const thisMonthTotalTransaction = thisMonthTransactionProducts.reduce(
+      (acc, cur) => acc + (cur.productPrice * cur.soldAmount),
+      0,
+    );
+
+    const thisMonthTotalProfit = thisMonthTotalTransaction
+      - thisMonthTransactionProducts.reduce((acc, cur) => acc + (cur.productModal
+        * cur.soldAmount), 0);
+
+    this._addProfile(thisMonthTotalTransaction, thisMonthTotalProfit);
+  },
+
+  _addProfile(transaction, profit) {
+    document.querySelector('.profile__name span')
+      .innerHTML = this.PROFILE.profile.name.toUpperCase();
+
+    document.querySelector('.profile__saldo span')
+      .innerHTML = this._formatter.format(this.PROFILE.profile.saldo);
+
+    document.querySelector('.profile__transaction span#monthlyTransaction')
+      .innerHTML = this._formatter.format(transaction);
+
+    document.querySelector('.profile__transaction span#monthlyProfit')
+      .innerHTML = this._formatter.format(profit);
   },
 };
 

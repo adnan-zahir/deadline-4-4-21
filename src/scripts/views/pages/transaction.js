@@ -47,7 +47,7 @@ const Transaction = {
       .style.color = '#3d3dff';
 
     // eslint-disable-next-line global-require
-    const { transactions } = require('../../globals/DATA.json').transaction_history;
+    const { transactions } = require('../../globals/DATA.json').sale_report;
 
     TransactionHistoryInitiator.init({
       objectToSearch: transactions,

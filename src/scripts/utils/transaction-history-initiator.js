@@ -59,7 +59,7 @@ const TransactionHistoryInitiator = {
 
     let currentDate = '';
 
-    datas.forEach((data) => {
+    datas.slice().reverse().forEach((data) => {
       const { date } = data;
 
       if (currentDate !== date) { // new card group
@@ -81,11 +81,11 @@ const TransactionHistoryInitiator = {
   },
 
   _renderHistoryCard(data) {
-    this._total += data.amount;
-    const amount = this._formatter.format(data.amount);
+    const amount = data.products.reduce((acc, cur) => (acc + cur.productPrice) * cur.soldAmount, 0);
+    this._total += amount;
     const cardGroups = document.querySelectorAll('.card-group');
     Object.values(cardGroups).slice(-1).pop()
-      .innerHTML += transactionHistoryCardTemplate(data, amount);
+      .innerHTML += transactionHistoryCardTemplate(data, this._formatter.format(amount));
   },
 
   _addTotal() {

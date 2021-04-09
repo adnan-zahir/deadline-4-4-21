@@ -1,100 +1,202 @@
 {
   "profile": {
     "name": "Adnan ZZ",
-    "monthlyTransaction": 200000,
-    "monthlyProfit": 120200,
     "saldo": 50000
   },
   "sale_report": {
     "summary": {
-      "startDate": "28 Mar 2021",
-      "totalPenjualan": 211100,
-      "totalModal": 201000
+      "startDate": "28 Mar 2021"
     },
-    "products": [
-      {
-        "soldDate": "02/04/2021",
-        "name": "PRINTER THERMAL",
-        "soldAmount": 1,
-        "totalPrice": 210000,
-        "totalProfit": 10000,
-        "type": "BARANG"
-      },
-      {
-        "soldDate": "30/03/2021",
-        "name": "PEPSODENT 75G HERBAL",
-        "soldAmount": 1,
-        "totalPrice": 1100,
-        "totalProfit": 100,
-        "type": "PPOB"
-      },
-      {
-        "soldDate": "30/03/2021",
-        "name": "GOOD TIME BISKUIT",
-        "soldAmount": 2,
-        "totalPrice": 16000,
-        "totalProfit": 1000,
-        "type": "BARANG"
-      }
-    ]
-  },
-  "transaction_history": {
     "transactions": [
       {
         "date": "01/02/2021",
         "id": "#210102-IZ41",
         "name": "Saya A",
         "status": "LUNAS",
-        "amount": 250000
+        "products": [
+          {
+            "name": "PEPSODENT 75G HERBAL",
+            "productPrice": 12000,
+            "productModal": 10000,
+            "type": "PPOB",
+            "soldAmount": 1
+          },
+          {
+            "name": "GOOD TIME BISKUIT",
+            "productPrice": 16000,
+            "productModal": 15000,
+            "type": "BARANG",
+            "soldAmount": 2
+          }
+        ]
       },
       {
         "date": "01/02/2021",
         "id": "#210102-IZ42",
         "name": "Aku B",
-        "status": "HUTANG",
-        "amount": 20000
+        "status": "LUNAS",
+        "products": [
+          {
+            "name": "PRINTER THERMAL",
+            "productPrice": 210000,
+            "productModal": 200000,
+            "type": "BARANG",
+            "soldAmount": 1
+          },
+          {
+            "name": "PEPSODENT 75G HERBAL",
+            "productPrice": 12000,
+            "productModal": 10000,
+            "type": "PPOB",
+            "soldAmount": 1
+          }
+        ]
       },
       {
-        "date": "02/02/2021",
+        "date": "02/03/2021",
         "id": "#210202-FG27",
         "name": "Aku B",
         "status": "BATAL",
-        "amount": 120000
+        "products": [
+          {
+            "name": "PEPSODENT 75G HERBAL",
+            "productPrice": 12000,
+            "productModal": 10000,
+            "type": "PPOB",
+            "soldAmount": 1
+          },
+          {
+            "name": "GOOD TIME BISKUIT",
+            "productPrice": 16000,
+            "productModal": 15000,
+            "type": "BARANG",
+            "soldAmount": 2
+          }
+        ]
       },
       {
-        "date": "03/02/2021",
+        "date": "03/03/2021",
         "id": "#210302-AZ10",
         "name": "Saya A",
         "status": "LUNAS",
-        "amount": 30000
+        "products": [
+          {
+            "name": "PRINTER THERMAL",
+            "productPrice": 210000,
+            "productModal": 200000,
+            "type": "BARANG",
+            "soldAmount": 1
+          },
+          {
+            "name": "GOOD TIME BISKUIT",
+            "productPrice": 16000,
+            "productModal": 15000,
+            "type": "BARANG",
+            "soldAmount": 2
+          }
+        ]
       },
       {
-        "date": "03/02/2021",
+        "date": "03/03/2021",
         "id": "#210302-AZ11",
         "name": "Abdi C",
         "status": "HUTANG",
-        "amount": 100000
+        "products": [
+          {
+            "name": "PRINTER THERMAL",
+            "productPrice": 210000,
+            "productModal": 200000,
+            "type": "BARANG",
+            "soldAmount": 1
+          },
+          {
+            "name": "PEPSODENT 75G HERBAL",
+            "productPrice": 12000,
+            "productModal": 10000,
+            "type": "PPOB",
+            "soldAmount": 1
+          },
+          {
+            "name": "GOOD TIME BISKUIT",
+            "productPrice": 16000,
+            "productModal": 15000,
+            "type": "BARANG",
+            "soldAmount": 2
+          }
+        ]
       },
       {
-        "date": "03/02/2021",
+        "date": "03/04/2021",
         "id": "#210302-AZ12",
         "name": "Aku B",
         "status": "LUNAS",
-        "amount": 80000
+        "products": [
+          {
+            "name": "PRINTER THERMAL",
+            "productPrice": 210000,
+            "productModal": 200000,
+            "type": "BARANG",
+            "soldAmount": 1
+          },
+          {
+            "name": "PEPSODENT 75G HERBAL",
+            "productPrice": 12000,
+            "productModal": 10000,
+            "type": "PPOB",
+            "soldAmount": 1
+          }
+        ]
       },
       {
-        "date": "04/02/2021",
+        "date": "04/04/2021",
         "id": "#210402-AF25",
         "name": "Saya A",
         "status": "BATAL",
-        "amount": 90000
+        "products": [
+          {
+            "name": "PRINTER THERMAL",
+            "productPrice": 210000,
+            "productModal": 200000,
+            "type": "BARANG",
+            "soldAmount": 1
+          },
+          {
+            "name": "PEPSODENT 75G HERBAL",
+            "productPrice": 12000,
+            "productModal": 10000,
+            "type": "PPOB",
+            "soldAmount": 1
+          },
+          {
+            "name": "GOOD TIME BISKUIT",
+            "productPrice": 16000,
+            "productModal": 15000,
+            "type": "BARANG",
+            "soldAmount": 2
+          }
+        ]
       },
       {
-        "date": "04/02/2021",
+        "date": "04/04/2021",
         "id": "#210402-AF26",
         "name": "Abdi C",
         "status": "LUNAS",
-        "amount": 300000
+        "products": [
+          {
+            "name": "PEPSODENT 75G HERBAL",
+            "productPrice": 12000,
+            "productModal": 10000,
+            "type": "PPOB",
+            "soldAmount": 1
+          },
+          {
+            "name": "GOOD TIME BISKUIT",
+            "productPrice": 16000,
+            "productModal": 15000,
+            "type": "BARANG",
+            "soldAmount": 2
+          }
+        ]
       }
     ]
   }

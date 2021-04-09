@@ -86,6 +86,11 @@ main {
           grid-area: notif;
           text-align: right;
           color: #444444;
+
+          button {
+            background-color: transparent;
+            border: 0;
+          }
         }
 
         .profile__saldo {
@@ -424,21 +429,96 @@ main {
       }
     }
 
-    aside.overlay {
-      background-color: #f8f8f8;
-      z-index: 1000;
-      display: none;
-      
-      &.full {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+    #overlayHead {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      align-items: center;
+      justify-content: space-between;
+
+      button.overlay-back-button {
+        background-color: transparent;
+        border: 0;
+        color: #888888;
+
+        &:hover {
+          background-color: darkgray;
+        }
       }
 
-      &.active {
-        display: block;
+      .overlay-title {
+        h2 {
+          font-weight: normal;
+          font-size: 1em;
+          text-transform: uppercase;
+          color: #888888;
+        }
+      }
+    }
+
+    #overlayBody {
+      .your-saldo-container {
+        &>span {
+          color: #888888;
+          display: block;
+        }
+
+        .your-saldo {
+          font-size: 1.2em;
+          color: #0000aa;
+        }
+      }
+
+      form.isi-saldo-form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 1fr;
+        gap: 0.2em;
+        
+        &>span {
+          grid-column: span 2;
+          color: #888888;
+        }
+
+        label.custom-radio-container {
+          width: 100%;
+          display: block;
+          position: relative;
+          cursor: pointer;
+          user-select: none;
+
+          input[type="radio"] {
+            opacity: 0;
+            position: absolute;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+          }
+
+          .custom-radio {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 0.5em 1em;
+            width: 100%;
+            background-color: white;
+            border-radius: 1em;
+          }
+
+          &:hover input[type="radio"] ~ .custom-radio {
+            background-color: #ccc;
+          }
+
+          input[type="radio"]:checked ~ .custom-radio {
+            background-color: #3d3dff;
+            color: white;
+          }
+        }
+
+        label.custom-input-container {
+          grid-column: span 2;
+          width: 100%;
+          position: relative;
+        }
       }
     }
   }
