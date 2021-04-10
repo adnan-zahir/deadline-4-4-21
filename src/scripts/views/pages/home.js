@@ -43,9 +43,24 @@ const Home = {
     </div>
     <div class="content-menu" id="contentMenu">
       <div class="menu-card">
-        <a href="#/home&kasir" class="overlay-button kasir-button" type="button">
+        <a href="#/home&kasir" type="button">
           <span class="material-icons icon">attach_money</span>
           <span class="name">Kasir</span>
+          <span class="desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero accusamus commodi dicta ullam a expedita?</span>
+        </a>
+        <a href="#" type="button">
+          <span class="material-icons icon">phone_iphone</span>
+          <span class="name">Pembayaran (PPOB)</span>
+          <span class="desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero accusamus commodi dicta ullam a expedita?</span>
+        </a>
+        <a href="#" type="button">
+          <span class="material-icons icon">receipt</span>
+          <span class="name">Belanja Stok</span>
+          <span class="desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero accusamus commodi dicta ullam a expedita?</span>
+        </a>
+        <a href="#" type="button">
+          <span class="material-icons icon">library_books</span>
+          <span class="name">Pencatatan Hutang</span>
           <span class="desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero accusamus commodi dicta ullam a expedita?</span>
         </a>
       </div>
@@ -102,7 +117,7 @@ const Home = {
 
   _addProfile(transaction, profit) {
     document.querySelector('.profile__name span')
-      .innerHTML = this.PROFILE.profile.name.toUpperCase();
+      .innerHTML = this.PROFILE.profile.store_name.toUpperCase();
 
     document.querySelector('.profile__saldo span')
       .innerHTML = this._formatter.format(this.PROFILE.profile.saldo);

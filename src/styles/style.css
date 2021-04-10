@@ -7,6 +7,29 @@
           box-sizing: border-box;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(240, 240, 240, 0.2);
+  -webkit-box-shadow: inset 0 0 2px lightgray;
+          box-shadow: inset 0 0 2px lightgray;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 1em;
+  background: rgba(136, 136, 136, 0.5);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #888888;
+}
+
 body {
   font-size: 14px;
   font-family: Arial, Arial, Helvetica, sans-serif;
@@ -77,7 +100,7 @@ main #content {
 main #content #contentHeader .profile {
   display: -ms-grid;
   display: grid;
-      grid-template-areas: 'name notif' 'saldo topup' 'transaction transaction';
+      grid-template-areas: 'name notif' 'saldo topup' 'transaction transaction';
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -179,7 +202,7 @@ main #content #contentHeader .inner-head {
   color: #444444;
 }
 
-main #content #contentHeader .inner-head button {
+main #content #contentHeader .inner-head button, main #content #contentHeader .inner-head a {
   background-color: transparent;
   color: #444444;
   border: 0;
@@ -278,10 +301,18 @@ main #content #contentBody .content-title h2 {
   font-weight: normal;
 }
 
+main #content #contentBody .content-menu#contentMenu .menu-card {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  gap: 1em;
+}
+
 main #content #contentBody .content-menu#contentMenu .menu-card a {
   display: -ms-grid;
   display: grid;
-      grid-template-areas: 'icon name' 'icon desc';
+      grid-template-areas: 'icon name' 'icon desc';
   -webkit-column-gap: 0.5em;
           column-gap: 0.5em;
   background-color: white;
@@ -363,7 +394,7 @@ main #content #contentBody .card-group .card {
   gap: 0.5em;
   -ms-grid-columns: 15% auto auto;
       grid-template-columns: 15% auto auto;
-      grid-template-areas: 'icon id status' 'icon name amount';
+      grid-template-areas: 'icon id status' 'icon name amount';
 }
 
 main #content #contentBody .card-group .card .icon {
@@ -512,7 +543,103 @@ main #content #contentBody .sale-report table.sale-report-table td:last-child {
   color: #10a310;
 }
 
-main #content #overlayHead {
+main #content #contentBody ul.modul-list {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.5em;
+}
+
+main #content #contentBody ul.modul-list span {
+  color: #888888;
+}
+
+main #content #contentBody ul.modul-list li {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  width: 100%;
+}
+
+main #content #contentBody ul.modul-list li a {
+  display: block;
+  width: 100%;
+  color: #888888;
+  background-color: white;
+  border-radius: 0.2em;
+  -webkit-box-shadow: 0 0 0 1px lightgray;
+          box-shadow: 0 0 0 1px lightgray;
+  text-decoration: none;
+  padding: 0.5em;
+}
+
+main #content #contentBody ul.modul-list li a:hover {
+  background-color: lightgray;
+}
+
+main #content #contentBody .account-header {
+  color: #888888;
+}
+
+main #content #contentBody .account-body ul.account-menu-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1em;
+  list-style-type: none;
+}
+
+main #content #contentBody .account-body ul.account-menu-list .account-menu-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main #content #contentBody .account-body ul.account-menu-list .account-menu-group li.account-menu-item:first-child {
+  border-radius: 0.2em 0.2em 0 0;
+}
+
+main #content #contentBody .account-body ul.account-menu-list .account-menu-group li.account-menu-item:last-child {
+  border-radius: 0 0 0.2em 0.2em;
+}
+
+main #content #contentBody .account-body ul.account-menu-list .account-menu-group li.account-menu-item:first-child:last-child {
+  border-radius: 0.2em;
+}
+
+main #content #contentBody .account-body ul.account-menu-list .account-menu-group li.account-menu-item {
+  background-color: white;
+  width: 100%;
+  -webkit-box-shadow: 0 0 0 1px lightgray;
+          box-shadow: 0 0 0 1px lightgray;
+}
+
+main #content #contentBody .account-body ul.account-menu-list .account-menu-group li.account-menu-item a {
+  color: #888888;
+  display: block;
+  padding: 0.5em;
+  width: 100%;
+  text-decoration: none;
+}
+
+main #content #contentBody .account-body ul.account-menu-list .account-menu-group li.account-menu-item a:hover {
+  background-color: lightgray;
+}
+
+main #content #overlayHeader {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (auto)[3];
@@ -523,32 +650,33 @@ main #content #overlayHead {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  gap: 1em;
 }
 
-main #content #overlayHead button.overlay-back-button {
+main #content #overlayHeader button.overlay-back-button {
   background-color: transparent;
   border: 0;
   color: #888888;
 }
 
-main #content #overlayHead button.overlay-back-button:hover {
+main #content #overlayHeader button.overlay-back-button:hover {
   background-color: darkgray;
 }
 
-main #content #overlayHead .overlay-title h2 {
+main #content #overlayHeader .overlay-title h2 {
   font-weight: normal;
   font-size: 1em;
   text-transform: uppercase;
   color: #888888;
 }
 
-main #content #overlayHead button.open-search {
+main #content #overlayHeader button.open-search {
   background-color: transparent;
   color: #888888;
   border: 0;
 }
 
-main #content #overlayHead .kasir-search-container {
+main #content #overlayHeader .kasir-search-container {
   grid-column: span 3;
   position: absolute;
   left: 0;
@@ -558,14 +686,31 @@ main #content #overlayHead .kasir-search-container {
   display: none;
 }
 
-main #content #overlayHead .kasir-search-container.open {
+main #content #overlayHeader .kasir-search-container.open {
   display: block;
 }
 
-main #content #overlayHead .kasir-search-container #kasirSearch {
+main #content #overlayHeader .kasir-search-container #kasirSearch {
   width: 100%;
   padding: 1em 0.5em;
   border: 0;
+}
+
+main #content #overlayHeader #transactionSearch {
+  grid-column: span 3;
+  padding: 1em 0.5em;
+}
+
+main #content #overlayBody {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1em;
+  margin-bottom: 3em;
 }
 
 main #content #overlayBody .your-saldo-container > span {
@@ -726,5 +871,96 @@ main #content #overlayBody .kasir-header button:last-of-type {
 
 main #content #overlayBody .kasir-header button:hover {
   background-color: #bbbbff;
+}
+
+main #content #overlayBody .debt-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1em;
+}
+
+main #content #overlayBody .debt-list .card-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1em;
+}
+
+main #content #overlayBody .debt-list .card-group__header {
+  color: #888888;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main #content #overlayBody .debt-list .card-group__header .total {
+  color: black;
+}
+
+main #content #overlayBody .debt-list .card-group .card {
+  background-color: white;
+  border-radius: 0.5em;
+  -webkit-box-shadow: 0 0 2px lightgray;
+          box-shadow: 0 0 2px lightgray;
+  display: -ms-grid;
+  display: grid;
+  padding: 1em;
+  gap: 0.5em;
+  -ms-grid-columns: 15% auto auto;
+      grid-template-columns: 15% auto auto;
+      grid-template-areas: 'icon id status' 'icon name amount';
+}
+
+main #content #overlayBody .debt-list .card-group .card .icon {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: icon;
+  color: limegreen;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+main #content #overlayBody .debt-list .card-group .card .id {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: id;
+  color: #444444;
+}
+
+main #content #overlayBody .debt-list .card-group .card .name {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: name;
+  color: #444444;
+}
+
+main #content #overlayBody .debt-list .card-group .card .status {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: status;
+  color: limegreen;
+  text-align: right;
+}
+
+main #content #overlayBody .debt-list .card-group .card .amount {
+  -ms-grid-row: 2;
+  -ms-grid-column: 3;
+  grid-area: amount;
+  color: #888888;
+  text-align: right;
 }
 /*# sourceMappingURL=style.css.map */

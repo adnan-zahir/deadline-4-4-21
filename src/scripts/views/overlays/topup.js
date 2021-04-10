@@ -2,7 +2,7 @@
 const Topup = {
   async render() {
     return `
-      <div id="overlayHead">
+      <div id="overlayHeader">
         <button class="overlay-back-button">
           <span class="material-icons">arrow_back</span>
         </button>
@@ -59,7 +59,7 @@ const Topup = {
     const formatter = Intl.NumberFormat('id-ID', {
       style: 'currency',
       currency: 'IDR',
-      maximumFractionDigits: 0,
+      maximumFractionDigits: 2,
     });
 
     const backBtn = document.querySelector('.overlay-back-button');

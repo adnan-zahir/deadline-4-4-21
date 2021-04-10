@@ -2,7 +2,7 @@
 const Kasir = {
   async render() {
     return `
-      <div id="overlayHead">
+      <div id="overlayHeader">
         <button class="overlay-back-button">
           <span class="material-icons">arrow_back</span>
         </button>

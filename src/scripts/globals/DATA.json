@@ -1,6 +1,13 @@
 {
   "profile": {
     "name": "Adnan ZZ",
+    "email": "adnanzaidanz@gmail.com",
+    "phone": "0895326932186",
+    "store_name": "AZZ",
+    "store_address": "Jalan Ciumbuleuit No. 57",
+    "store_category": "other",
+    "password": "string",
+    "pin": "123456",
     "saldo": 50000
   },
   "sale_report": {

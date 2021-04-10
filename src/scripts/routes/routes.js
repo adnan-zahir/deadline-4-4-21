@@ -5,6 +5,9 @@ import Home from '../views/pages/home';
 import Report from '../views/pages/report';
 import Transaction from '../views/pages/transaction';
 import Kasir from '../views/overlays/kasir';
+import Management from '../views/pages/management';
+import Account from '../views/pages/account';
+import Debt from '../views/overlays/debt';
 
 const routes = {
   // PAGES
@@ -12,12 +15,13 @@ const routes = {
   '/home': Home,
   '/transaction': Transaction,
   '/report': Report,
-  // '/managements': Management,
-  // '/account': Account,
+  '/management': Management,
+  '/account': Account,
   // OVERLAYS
   '/home&notif': Notif,
   '/home&topup': Topup,
   '/home&kasir': Kasir,
+  '/transaction&debt': Debt,
 };
 
 export default routes;

@@ -9,7 +9,7 @@ const Transaction = {
       <div class="inner-head">
           <button id="drawerBtn"><span class="material-icons">tune</span></button>
           <span class="inner-head__title"><h3>Daftar Transaksi</h3></span>
-          <button><span class="material-icons">credit_card</span></button>
+          <a href="#/transaction&debt"><span class="material-icons">credit_card</span></a>
           <input
             type="search"
             name="search"

@@ -15,7 +15,7 @@ const SaleReportTableInitiator = {
     this._formatter = new Intl.NumberFormat('id-ID', {
       style: 'currency',
       currency: 'IDR',
-      maximumFractionDigits: 0,
+      maximumFractionDigits: 2,
     });
 
     this._totalPenjualan = 0;

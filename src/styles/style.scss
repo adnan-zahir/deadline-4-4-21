@@ -6,6 +6,28 @@
   box-sizing: border-box;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(240, 240, 240, 0.2);
+  box-shadow: inset 0 0 2px lightgray;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 1em;
+  background: rgba(136, 136, 136, 0.5);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(136, 136, 136);
+}
+
 body {
   font-size: 14px;
   font-family: Arial, Arial, Helvetica, sans-serif;
@@ -152,7 +174,7 @@ main {
         justify-content: space-between;
         color: #444444;
 
-        button {
+        button, a {
           background-color: transparent;
           color: #444444;
           border: 0;
@@ -234,44 +256,50 @@ main {
       }
 
       .content-menu#contentMenu {
-        .menu-card a {
+        .menu-card {
           display: grid;
-          grid-template-areas:
-            'icon name'
-            'icon desc';
-          column-gap: 0.5em;
-          background-color: white;
-          border-radius: 0.5em;
-          padding: 0.5em;
-          border: 0;
-          text-align: left;
-          box-shadow: 0 0 0 1px #dddddd;
-          text-decoration: none;
-
-          span {
-            color: #3d3dff;
-          }
-
-          span.icon {
-            grid-area: icon;
-            width: 50px;
-            height: 50px;
-            font-size: 3.5em;
-          }
-
-          span.name {
-            grid-area: name;
-            font-size: 1.5em;
-            font-weight: normal;
-          }
-
-          span.desc {
-            grid-area: desc;
-            color: #444444;
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
+          grid-template-columns: 1fr;
+          gap: 1em;
+          
+          a {
+            display: grid;
+            grid-template-areas:
+              'icon name'
+              'icon desc';
+            column-gap: 0.5em;
+            background-color: white;
+            border-radius: 0.5em;
+            padding: 0.5em;
+            border: 0;
+            text-align: left;
+            box-shadow: 0 0 0 1px #dddddd;
+            text-decoration: none;
+  
+            span {
+              color: #3d3dff;
+            }
+  
+            span.icon {
+              grid-area: icon;
+              width: 50px;
+              height: 50px;
+              font-size: 3.5em;
+            }
+  
+            span.name {
+              grid-area: name;
+              font-size: 1.5em;
+              font-weight: normal;
+            }
+  
+            span.desc {
+              grid-area: desc;
+              color: #444444;
+              overflow: hidden;
+              display: -webkit-box;
+              -webkit-line-clamp: 2;
+              -webkit-box-orient: vertical;
+            }
           }
         }
       }
@@ -428,13 +456,93 @@ main {
           }
         }
       }
+
+      ul.modul-list {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+
+        span {
+          color: #888888;
+        }
+
+        li {
+          flex: 1;
+          width: 100%;
+
+          a {
+            display: block;
+            width: 100%;
+            color: #888888;
+            background-color: white;
+            border-radius: 0.2em;
+            box-shadow: 0 0 0 1px lightgray;
+            text-decoration: none;
+            padding: 0.5em;
+
+            &:hover {
+              background-color: lightgray;
+            }
+          }
+        }
+      }
+
+      .account-header {
+        color: #888888;
+      }
+
+      .account-body {
+        ul.account-menu-list {
+          display: flex;
+          flex-direction: column;
+          gap: 1em;
+          list-style-type: none;
+
+          .account-menu-group {
+            display: flex;
+            flex-direction: column;
+
+            li.account-menu-item:first-child {
+              border-radius: 0.2em 0.2em 0 0;
+            }
+
+            li.account-menu-item:last-child {
+              border-radius: 0 0 0.2em 0.2em;
+            }
+
+            li.account-menu-item:first-child:last-child {
+              border-radius: 0.2em;
+            }
+
+            li.account-menu-item {
+              background-color: white;
+              width: 100%;
+              box-shadow: 0 0 0 1px lightgray;
+
+              a {
+                color: #888888;
+                display: block;
+                padding: 0.5em;
+                width: 100%;
+                text-decoration: none;
+
+                &:hover {
+                  background-color: lightgray;
+                }
+              }
+            }
+          }
+        }
+      }
     }
 
-    #overlayHead {
+    #overlayHeader {
       display: grid;
       grid-template-columns: repeat(3, auto);
       align-items: center;
       justify-content: space-between;
+      gap: 1em;
 
       button.overlay-back-button {
         background-color: transparent;
@@ -480,9 +588,19 @@ main {
           border: 0;
         }
       }
+      
+      #transactionSearch {
+        grid-column: span 3;
+        padding: 1em 0.5em;
+      }
     }
 
     #overlayBody {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      margin-bottom: 3em;
+      
       .your-saldo-container {
         &>span {
           color: #888888;
@@ -624,6 +742,70 @@ main {
 
           &:hover {
             background-color: #bbbbff;
+          }
+        }
+      }
+
+      .debt-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+
+        .card-group {
+          display: flex;
+          flex-direction: column;
+          gap: 1em;
+          
+          &__header {
+            color: #888888;
+            display: flex;
+            justify-content: space-between;
+  
+            .total {
+              color: black;
+            }
+          }
+  
+          .card {
+            background-color: white;
+            border-radius: 0.5em;
+            box-shadow: 0 0 2px lightgray;
+            display: grid;
+            padding: 1em;
+            gap: 0.5em;
+            grid-template-columns: 15% auto auto;
+            grid-template-areas: 
+              'icon id status'
+              'icon name amount';
+  
+            .icon {
+              grid-area: icon;
+              color: limegreen;
+              display: grid;
+              place-items: center;
+            }
+  
+            .id {
+              grid-area: id;
+              color: #444444;
+            }
+  
+            .name {
+              grid-area: name;
+              color: #444444;
+            }
+  
+            .status {
+              grid-area: status;
+              color: limegreen;
+              text-align: right;
+            }
+  
+            .amount {
+              grid-area: amount;
+              color: #888888;
+              text-align: right;
+            }
           }
         }
       }
