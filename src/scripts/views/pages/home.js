@@ -17,7 +17,7 @@ const Home = {
         </a>
       </div>
       <div class="profile-item profile__topup">
-        <button class="overlay-button topup-button">Top Up</button>
+        <a href="#/home&topup" class="overlay-button topup-button">Top Up</a>
       </div>
       <div class="profile-item profile__transaction">
         <table>
@@ -43,11 +43,11 @@ const Home = {
     </div>
     <div class="content-menu" id="contentMenu">
       <div class="menu-card">
-        <button class="overlay-button kasir-button" type="button">
+        <a href="#/home&kasir" class="overlay-button kasir-button" type="button">
           <span class="material-icons icon">attach_money</span>
           <span class="name">Kasir</span>
           <span class="desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero accusamus commodi dicta ullam a expedita?</span>
-        </button>
+        </a>
       </div>
     </div>
   </section>`;

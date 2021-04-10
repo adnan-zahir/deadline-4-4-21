@@ -87,9 +87,9 @@ main {
           text-align: right;
           color: #444444;
 
-          button {
-            background-color: transparent;
-            border: 0;
+          a {
+            color: #444444;
+            text-decoration: none;
           }
         }
 
@@ -106,11 +106,11 @@ main {
           grid-area: topup;
           text-align: right;
 
-          button {
+          a {
             padding: 0.5em 1.5em;
             background-color: #0000aa;
             color: white;
-            border: 0;
+            text-decoration: none;
             border-radius: 1em;
           }
         }
@@ -234,7 +234,7 @@ main {
       }
 
       .content-menu#contentMenu {
-        .menu-card button {
+        .menu-card a {
           display: grid;
           grid-template-areas:
             'icon name'
@@ -246,6 +246,7 @@ main {
           border: 0;
           text-align: left;
           box-shadow: 0 0 0 1px #dddddd;
+          text-decoration: none;
 
           span {
             color: #3d3dff;
@@ -453,6 +454,32 @@ main {
           color: #888888;
         }
       }
+
+      button.open-search {
+        background-color: transparent;
+        color: #888888;
+        border: 0;
+      }
+
+      .kasir-search-container {
+        grid-column: span 3;
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding: 1em;
+        width: 100%;
+        display: none;
+
+        &.open {
+          display: block;
+        }
+
+        #kasirSearch {
+          width: 100%;
+          padding: 1em 0.5em;
+          border: 0;
+        }
+      }
     }
 
     #overlayBody {
@@ -502,6 +529,7 @@ main {
             width: 100%;
             background-color: white;
             border-radius: 1em;
+            box-shadow: 0 0 0 2px lightgray;
           }
 
           &:hover input[type="radio"] ~ .custom-radio {
@@ -518,6 +546,85 @@ main {
           grid-column: span 2;
           width: 100%;
           position: relative;
+          background-color: white;
+          border: 0;
+          border-radius: 0.2em;
+          box-shadow: 0 0 0 2px lightgray;
+
+          span {
+            position: absolute;
+            left: 0;
+            top: 0;
+            padding: 0.2em;
+            color: #0000aa;
+            font-size: 0.8em;
+          }
+
+          input[type="number"]{
+            background-color: transparent;
+            border: 0;
+            padding-top: 1.5em;
+            width: 100%;
+          }
+        }
+
+        input[type="submit"] {
+          position: absolute;
+          left: 50%;
+          bottom: 0;
+          transform: translateX(-50%);
+          margin-bottom: 5em;
+          background-color: #3d3dff;
+          color: white;
+          border: 0;
+          border-radius: 2em;
+          width: 90%;
+          padding: 1em;
+          grid-column: span 2;
+          cursor: pointer;
+
+          &:hover {
+            background-color: lighten(#3d3dff, 15);
+          }
+        }
+      }
+
+      .riwayat-kosong {
+        width: 100%;
+        height: 70vh;
+        display: grid;
+        place-items: center;
+
+        h2 {
+          font-weight: normal;
+          color: #444444;
+        }
+      }
+
+      .kasir-header {
+        display: grid;
+        grid-template-columns: 1fr 1fr auto;
+        gap: 0.2em;
+
+        button {
+          border: 0;
+          border-radius: 10em;
+          background-color: white;
+          color: #3d3dff;
+          padding: 0.5em;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 0.8em;
+
+          &:last-of-type {
+            background-color: #3d3dff;
+            color: white;
+          }
+
+          &:hover {
+            background-color: #bbbbff;
+          }
         }
       }
     }

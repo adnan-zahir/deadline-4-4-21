@@ -103,9 +103,9 @@ main #content #contentHeader .profile .profile__notif {
   color: #444444;
 }
 
-main #content #contentHeader .profile .profile__notif button {
-  background-color: transparent;
-  border: 0;
+main #content #contentHeader .profile .profile__notif a {
+  color: #444444;
+  text-decoration: none;
 }
 
 main #content #contentHeader .profile .profile__saldo {
@@ -126,11 +126,11 @@ main #content #contentHeader .profile .profile__topup {
   text-align: right;
 }
 
-main #content #contentHeader .profile .profile__topup button {
+main #content #contentHeader .profile .profile__topup a {
   padding: 0.5em 1.5em;
   background-color: #0000aa;
   color: white;
-  border: 0;
+  text-decoration: none;
   border-radius: 1em;
 }
 
@@ -278,7 +278,7 @@ main #content #contentBody .content-title h2 {
   font-weight: normal;
 }
 
-main #content #contentBody .content-menu#contentMenu .menu-card button {
+main #content #contentBody .content-menu#contentMenu .menu-card a {
   display: -ms-grid;
   display: grid;
       grid-template-areas: 'icon name' 'icon desc';
@@ -291,13 +291,14 @@ main #content #contentBody .content-menu#contentMenu .menu-card button {
   text-align: left;
   -webkit-box-shadow: 0 0 0 1px #dddddd;
           box-shadow: 0 0 0 1px #dddddd;
+  text-decoration: none;
 }
 
-main #content #contentBody .content-menu#contentMenu .menu-card button span {
+main #content #contentBody .content-menu#contentMenu .menu-card a span {
   color: #3d3dff;
 }
 
-main #content #contentBody .content-menu#contentMenu .menu-card button span.icon {
+main #content #contentBody .content-menu#contentMenu .menu-card a span.icon {
   -ms-grid-row: 1;
   -ms-grid-row-span: 2;
   -ms-grid-column: 1;
@@ -307,7 +308,7 @@ main #content #contentBody .content-menu#contentMenu .menu-card button span.icon
   font-size: 3.5em;
 }
 
-main #content #contentBody .content-menu#contentMenu .menu-card button span.name {
+main #content #contentBody .content-menu#contentMenu .menu-card a span.name {
   -ms-grid-row: 2;
   -ms-grid-column: 2;
   grid-area: name;
@@ -315,7 +316,7 @@ main #content #contentBody .content-menu#contentMenu .menu-card button span.name
   font-weight: normal;
 }
 
-main #content #contentBody .content-menu#contentMenu .menu-card button span.desc {
+main #content #contentBody .content-menu#contentMenu .menu-card a span.desc {
   -ms-grid-row: 2;
   -ms-grid-column: 2;
   grid-area: desc;
@@ -541,6 +542,32 @@ main #content #overlayHead .overlay-title h2 {
   color: #888888;
 }
 
+main #content #overlayHead button.open-search {
+  background-color: transparent;
+  color: #888888;
+  border: 0;
+}
+
+main #content #overlayHead .kasir-search-container {
+  grid-column: span 3;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 1em;
+  width: 100%;
+  display: none;
+}
+
+main #content #overlayHead .kasir-search-container.open {
+  display: block;
+}
+
+main #content #overlayHead .kasir-search-container #kasirSearch {
+  width: 100%;
+  padding: 1em 0.5em;
+  border: 0;
+}
+
 main #content #overlayBody .your-saldo-container > span {
   color: #888888;
   display: block;
@@ -592,6 +619,8 @@ main #content #overlayBody form.isi-saldo-form label.custom-radio-container .cus
   width: 100%;
   background-color: white;
   border-radius: 1em;
+  -webkit-box-shadow: 0 0 0 2px lightgray;
+          box-shadow: 0 0 0 2px lightgray;
 }
 
 main #content #overlayBody form.isi-saldo-form label.custom-radio-container:hover input[type="radio"] ~ .custom-radio {
@@ -607,5 +636,95 @@ main #content #overlayBody form.isi-saldo-form label.custom-input-container {
   grid-column: span 2;
   width: 100%;
   position: relative;
+  background-color: white;
+  border: 0;
+  border-radius: 0.2em;
+  -webkit-box-shadow: 0 0 0 2px lightgray;
+          box-shadow: 0 0 0 2px lightgray;
+}
+
+main #content #overlayBody form.isi-saldo-form label.custom-input-container span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 0.2em;
+  color: #0000aa;
+  font-size: 0.8em;
+}
+
+main #content #overlayBody form.isi-saldo-form label.custom-input-container input[type="number"] {
+  background-color: transparent;
+  border: 0;
+  padding-top: 1.5em;
+  width: 100%;
+}
+
+main #content #overlayBody form.isi-saldo-form input[type="submit"] {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  margin-bottom: 5em;
+  background-color: #3d3dff;
+  color: white;
+  border: 0;
+  border-radius: 2em;
+  width: 90%;
+  padding: 1em;
+  grid-column: span 2;
+  cursor: pointer;
+}
+
+main #content #overlayBody form.isi-saldo-form input[type="submit"]:hover {
+  background-color: #8a8aff;
+}
+
+main #content #overlayBody .riwayat-kosong {
+  width: 100%;
+  height: 70vh;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+main #content #overlayBody .riwayat-kosong h2 {
+  font-weight: normal;
+  color: #444444;
+}
+
+main #content #overlayBody .kasir-header {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr auto;
+      grid-template-columns: 1fr 1fr auto;
+  gap: 0.2em;
+}
+
+main #content #overlayBody .kasir-header button {
+  border: 0;
+  border-radius: 10em;
+  background-color: white;
+  color: #3d3dff;
+  padding: 0.5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 0.8em;
+}
+
+main #content #overlayBody .kasir-header button:last-of-type {
+  background-color: #3d3dff;
+  color: white;
+}
+
+main #content #overlayBody .kasir-header button:hover {
+  background-color: #bbbbff;
 }
 /*# sourceMappingURL=style.css.map */
