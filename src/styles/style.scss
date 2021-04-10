@@ -673,7 +673,7 @@ main {
             position: absolute;
             left: 0;
             top: 0;
-            padding: 0.2em;
+            padding: 0.5em;
             color: #0000aa;
             font-size: 0.8em;
           }
@@ -681,7 +681,7 @@ main {
           input[type="number"]{
             background-color: transparent;
             border: 0;
-            padding-top: 1.5em;
+            padding-top: 1.5em 0.5em 0.5em 0.5em;
             width: 100%;
           }
         }
@@ -806,6 +806,137 @@ main {
               color: #888888;
               text-align: right;
             }
+          }
+        }
+      }
+
+      form.update-profile-form {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-rows: 1fr;
+        gap: 1em;
+
+        &>span {
+          grid-column: span 2;
+          color: #888888;
+        }
+
+        label.custom-input-container {
+          grid-column: span 2;
+          width: 100%;
+          position: relative;
+          background-color: white;
+          border: 0;
+          border-radius: 0.2em;
+          box-shadow: 0 0 2px lightgray;
+
+          span {
+            position: absolute;
+            left: 0;
+            top: 0;
+            padding: 0.5em;
+            color: #0000aa;
+            font-size: 0.8em;
+          }
+
+          input[type="number"],
+          input[type="text"],
+          input[type="email"],
+          input[type="password"]{
+            background-color: transparent;
+            border: 0;
+            padding: 1.5em 0.5em 0.5em 0.5em;
+            width: 100%;
+          }
+        }
+
+        input[type="submit"] {
+          position: absolute;
+          left: 50%;
+          bottom: 0;
+          transform: translateX(-50%);
+          margin-bottom: 5em;
+          background-color: #3d3dff;
+          color: white;
+          border: 0;
+          border-radius: 2em;
+          width: 90%;
+          padding: 1em;
+          grid-column: span 2;
+          cursor: pointer;
+
+          &:hover {
+            background-color: lighten(#3d3dff, 15);
+          }
+        }
+      }
+
+      .module-product-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+
+        .module-product-card {
+          display: grid;
+          grid-template-areas:
+            'image name edit'
+            'image stock edit'
+            'image price edit';
+          border-radius: 0.5em;
+          background-color: white;
+          box-shadow: 0 0 2px lightgray;
+          padding: 0.5em;
+  
+          picture {
+            grid-area: image;
+            border-radius: 0.2em;
+            
+            img {
+              max-width: 5em;
+              min-height: 5em;
+              border-radius: 0.2em;
+            }
+          }
+  
+          span {
+            color: #888888;
+          }
+          
+          .module-product__name {
+            grid-area: name;
+            color: #3d3dff;
+          }
+  
+          .module-product__stock {
+            grid-area: stock;
+          }
+  
+          .module-product__price {
+            grid-area: price;
+          }
+  
+          button.module-product__edit {
+            grid-area: edit;
+            border: 0;
+            background-color: transparent;
+  
+            span {
+            color: #3d3dff;
+            }
+          }
+        }
+
+        button.module-product__add-product-button {
+          background-color: #3d3dff;
+          color: white;
+          border: 0;
+          border-radius: 2em;
+          width: 100%;
+          padding: 1em;
+          grid-column: span 2;
+
+          &:hover {
+            background-color: lighten(#3d3dff, 15);
           }
         }
       }

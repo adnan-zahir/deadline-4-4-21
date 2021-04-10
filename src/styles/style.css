@@ -108,7 +108,7 @@ main #content #contentHeader .profile {
 }
 
 main #content #contentHeader .profile .profile__name {
-  -ms-grid-row: 2;
+  -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: name;
   color: #444444;
@@ -340,7 +340,7 @@ main #content #contentBody .content-menu#contentMenu .menu-card a span.icon {
 }
 
 main #content #contentBody .content-menu#contentMenu .menu-card a span.name {
-  -ms-grid-row: 2;
+  -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: name;
   font-size: 1.5em;
@@ -416,7 +416,7 @@ main #content #contentBody .card-group .card .id {
 }
 
 main #content #contentBody .card-group .card .name {
-  -ms-grid-row: 2;
+  -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: name;
   color: #444444;
@@ -792,7 +792,7 @@ main #content #overlayBody form.isi-saldo-form label.custom-input-container span
   position: absolute;
   left: 0;
   top: 0;
-  padding: 0.2em;
+  padding: 0.5em;
   color: #0000aa;
   font-size: 0.8em;
 }
@@ -800,7 +800,7 @@ main #content #overlayBody form.isi-saldo-form label.custom-input-container span
 main #content #overlayBody form.isi-saldo-form label.custom-input-container input[type="number"] {
   background-color: transparent;
   border: 0;
-  padding-top: 1.5em;
+  padding-top: 1.5em 0.5em 0.5em 0.5em;
   width: 100%;
 }
 
@@ -942,7 +942,7 @@ main #content #overlayBody .debt-list .card-group .card .id {
 }
 
 main #content #overlayBody .debt-list .card-group .card .name {
-  -ms-grid-row: 2;
+  -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: name;
   color: #444444;
@@ -962,5 +962,156 @@ main #content #overlayBody .debt-list .card-group .card .amount {
   grid-area: amount;
   color: #888888;
   text-align: right;
+}
+
+main #content #overlayBody form.update-profile-form {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  grid-auto-rows: 1fr;
+  gap: 1em;
+}
+
+main #content #overlayBody form.update-profile-form > span {
+  grid-column: span 2;
+  color: #888888;
+}
+
+main #content #overlayBody form.update-profile-form label.custom-input-container {
+  grid-column: span 2;
+  width: 100%;
+  position: relative;
+  background-color: white;
+  border: 0;
+  border-radius: 0.2em;
+  -webkit-box-shadow: 0 0 2px lightgray;
+          box-shadow: 0 0 2px lightgray;
+}
+
+main #content #overlayBody form.update-profile-form label.custom-input-container span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 0.5em;
+  color: #0000aa;
+  font-size: 0.8em;
+}
+
+main #content #overlayBody form.update-profile-form label.custom-input-container input[type="number"],
+main #content #overlayBody form.update-profile-form label.custom-input-container input[type="text"],
+main #content #overlayBody form.update-profile-form label.custom-input-container input[type="email"],
+main #content #overlayBody form.update-profile-form label.custom-input-container input[type="password"] {
+  background-color: transparent;
+  border: 0;
+  padding: 1.5em 0.5em 0.5em 0.5em;
+  width: 100%;
+}
+
+main #content #overlayBody form.update-profile-form input[type="submit"] {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  margin-bottom: 5em;
+  background-color: #3d3dff;
+  color: white;
+  border: 0;
+  border-radius: 2em;
+  width: 90%;
+  padding: 1em;
+  grid-column: span 2;
+  cursor: pointer;
+}
+
+main #content #overlayBody form.update-profile-form input[type="submit"]:hover {
+  background-color: #8a8aff;
+}
+
+main #content #overlayBody .module-product-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1em;
+}
+
+main #content #overlayBody .module-product-list .module-product-card {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: 'image name edit' 'image stock edit' 'image price edit';
+  border-radius: 0.5em;
+  background-color: white;
+  -webkit-box-shadow: 0 0 2px lightgray;
+          box-shadow: 0 0 2px lightgray;
+  padding: 0.5em;
+}
+
+main #content #overlayBody .module-product-list .module-product-card picture {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 3;
+  -ms-grid-column: 1;
+  grid-area: image;
+  border-radius: 0.2em;
+}
+
+main #content #overlayBody .module-product-list .module-product-card picture img {
+  max-width: 5em;
+  min-height: 5em;
+  border-radius: 0.2em;
+}
+
+main #content #overlayBody .module-product-list .module-product-card span {
+  color: #888888;
+}
+
+main #content #overlayBody .module-product-list .module-product-card .module-product__name {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: name;
+  color: #3d3dff;
+}
+
+main #content #overlayBody .module-product-list .module-product-card .module-product__stock {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: stock;
+}
+
+main #content #overlayBody .module-product-list .module-product-card .module-product__price {
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  grid-area: price;
+}
+
+main #content #overlayBody .module-product-list .module-product-card button.module-product__edit {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 3;
+  -ms-grid-column: 3;
+  grid-area: edit;
+  border: 0;
+  background-color: transparent;
+}
+
+main #content #overlayBody .module-product-list .module-product-card button.module-product__edit span {
+  color: #3d3dff;
+}
+
+main #content #overlayBody .module-product-list button.module-product__add-product-button {
+  background-color: #3d3dff;
+  color: white;
+  border: 0;
+  border-radius: 2em;
+  width: 100%;
+  padding: 1em;
+  grid-column: span 2;
+}
+
+main #content #overlayBody .module-product-list button.module-product__add-product-button:hover {
+  background-color: #8a8aff;
 }
 /*# sourceMappingURL=style.css.map */

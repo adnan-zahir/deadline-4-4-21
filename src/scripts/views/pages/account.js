@@ -16,24 +16,24 @@ const Account = {
         <ul class="account-menu-list">
           <div class="account-menu-group">
             <li class="account-menu-item">
-              <a href="#">Data pribadi</a>
+              <a href="#/account&personal_data">Data pribadi</a>
             </li>
           </div>
           <div class="account-menu-group">
             <li class="account-menu-item">
-              <a href="#">Ubah email</a>
+              <a href="#/account&change_email">Ubah email</a>
             </li>
             <li class="account-menu-item">
-              <a href="#">Ubah No. Hp</a>
+              <a href="#/account&change_phone">Ubah No. Hp</a>
             </li>
             <li class="account-menu-item">
-              <a href="#">Ubah password</a>
+              <a href="#/account&change_pass">Ubah password</a>
             </li>
             <li class="account-menu-item">
-              <a href="#">Ubah PIN</a>
+              <a href="#/account&change_pin">Ubah PIN</a>
             </li>
             <li class="account-menu-item">
-              <a href="#">Lupa PIN</a>
+              <a href="#/account&forgot_pin">Lupa PIN</a>
             </li>
           </div>
           <div class="account-menu-group">
@@ -84,7 +84,7 @@ const Account = {
         // eslint-disable-next-line no-param-reassign
         navItem.style.color = '#444444';
       });
-    document.querySelector('#navTransaction a')
+    document.querySelector('#navAccount a')
       .style.color = '#3d3dff';
   },
 };

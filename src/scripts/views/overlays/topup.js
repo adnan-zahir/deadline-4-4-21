@@ -15,7 +15,7 @@ const Topup = {
           <span>Saldo Anda Sebesar :</span>
           <span class="your-saldo"></span>
         </div>
-        <form method="POST" action="" class="isi-saldo-form">
+        <form method="POST" action="" class="isi-saldo-form" onsubmit="return false">
           <span>Silahkan pilih nominal pengisian saldo yang telah disediakan :</span>
           <label class="custom-radio-container">
             <input type="radio" name="saldo-radio" checked="checked">

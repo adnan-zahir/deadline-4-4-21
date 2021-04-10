@@ -206,5 +206,31 @@
         ]
       }
     ]
-  }
+  },
+  "product_list": [
+    {
+      "barcode_number": 123456,
+      "name":"GOOD TIME BISKUIT",
+      "category": "Makanan",
+      "productPrice": 16000,
+      "productModal": 15000,
+      "stock": 10
+    },
+    {
+      "barcode_number": 789101,
+      "name":"PRINTER THERMAL",
+      "category": "Umum",
+      "productPrice": 210000,
+      "productModal": 200000,
+      "stock": 0
+    },
+    {
+      "barcode_number": 112131,
+      "name":"PEPSODENT 75G HERBAL",
+      "category": "Umum",
+      "productPrice": 12000,
+      "productModal": 10000,
+      "stock": 8
+    }
+  ]
 }

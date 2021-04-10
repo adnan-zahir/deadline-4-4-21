@@ -79,9 +79,24 @@ const saleReportTableBodyTemplate = (product, currencies) => `
 </tr>
 `;
 
+const moduleProductTemplate = (product, productPrice) => `
+<div class="module-product-card">
+  <picture>
+    <img src="./images/default.png"/>
+  </picture>
+  <span class="module-product__name">${product.name}</span>
+  <span class="module-product__stock">${(typeof product.stock === 'number' && product.stock > 0 ? product.stock : 'Fitur stok tidak aktif')}</span>
+  <span class="module-product__price">${productPrice}</span>
+  <button class="module-product__edit">
+    <span class="material-icons">edit_note</span>
+  </button>
+</div>
+`;
+
 export {
   transactionHistoryGroupTemplate,
   transactionHistoryCardTemplate,
   saleReportTableHeadTemplate,
   saleReportTableBodyTemplate,
+  moduleProductTemplate,
 };

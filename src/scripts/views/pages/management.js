@@ -23,7 +23,7 @@ const Management = {
         // eslint-disable-next-line no-param-reassign
         navItem.style.color = '#444444';
       });
-    document.querySelector('#navTransaction a')
+    document.querySelector('#navManagement a')
       .style.color = '#3d3dff';
   },
 };

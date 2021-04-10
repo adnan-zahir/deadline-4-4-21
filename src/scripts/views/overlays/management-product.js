@@ -1,5 +1,8 @@
+/* eslint-disable camelcase */
+import ModuleProductInitiator from '../../utils/module-product-initiator';
+
 /* eslint-disable no-underscore-dangle */
-const Kasir = {
+const ManagementProduct = {
   async render() {
     return `
       <div id="overlayHeader">
@@ -17,28 +20,14 @@ const Kasir = {
         </div>
       </div>
       <div id="overlayBody">
-        <div class="kasir-header">
-          <button class="produk-baru-button">
-            <span class="material-icons">add</span>
-            <span>PRODUK BARU</span>
-          </button>
-          <button class="pesan-manual-button">
-            <span class="material-icons">timer</span>
-            <span>PESAN MANUAL</span>
-          </button>
-          <button class="scan-barcode-button">
-            <span class="material-icons">qr_code_scanner</span>
-          </button>
-        </div>
-        <div class="kasir-body">
-        </div>
+        <div class="module-product-list"></div>
       </div>
     `;
   },
 
   async afterRender() {
     // eslint-disable-next-line global-require
-    // const DATA = require('../../globals/DATA.json');
+    const { product_list } = require('../../globals/DATA.json');
 
     const backBtn = document.querySelector('.overlay-back-button');
     // eslint-disable-next-line no-restricted-globals
@@ -49,7 +38,12 @@ const Kasir = {
     openSearchBtn.addEventListener('click', () => kasirSearchContainer.classList.toggle('open'));
     document.querySelector('#overlayBody')
       .addEventListener('click', () => kasirSearchContainer.classList.remove('open'));
+
+    ModuleProductInitiator.init({
+      container: document.querySelector('.module-product-list'),
+      products: product_list,
+    });
   },
 };
 
-export default Kasir;
+export default ManagementProduct;
