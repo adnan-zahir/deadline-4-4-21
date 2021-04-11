@@ -978,6 +978,32 @@ main #content #overlayBody form.update-profile-form > span {
   color: #888888;
 }
 
+main #content #overlayBody form.update-profile-form .custom-select-container {
+  grid-column: span 2;
+}
+
+main #content #overlayBody form.update-profile-form button {
+  border: 0;
+  border-radius: 10em;
+  padding: 0.5em;
+  background-color: #3d3dff;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 0.8em;
+}
+
+main #content #overlayBody form.update-profile-form button:hover {
+  background-color: #bbbbff;
+}
+
 main #content #overlayBody form.update-profile-form label.custom-input-container {
   grid-column: span 2;
   width: 100%;
@@ -1029,7 +1055,65 @@ main #content #overlayBody form.update-profile-form input[type="submit"]:hover {
   background-color: #8a8aff;
 }
 
-main #content #overlayBody .module-product-list {
+main #content #overlayBody form.update-profile-form .custom-select-container {
+  position: relative;
+  width: 100%;
+  -webkit-box-shadow: 0 0 2px lightgray;
+          box-shadow: 0 0 2px lightgray;
+  border-radius: 0.2em;
+  padding: 1.5em 0.5em 0 0.5em;
+  cursor: pointer;
+  background-color: white;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: 'select';
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main #content #overlayBody form.update-profile-form .custom-select-container label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.5em;
+  font-size: 0.8em;
+  color: #0000aa;
+}
+
+main #content #overlayBody form.update-profile-form .custom-select-container select.custom-select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  border: 0;
+  padding-right: 1em;
+  width: 100%;
+  outline: none;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: select;
+}
+
+main #content #overlayBody form.update-profile-form .custom-select-container select::-ms-expand {
+  display: none;
+}
+
+main #content #overlayBody form.update-profile-form .custom-select-container::after {
+  content: '';
+  width: 0.8em;
+  height: 0.5em;
+  background-color: #0000aa;
+  -webkit-clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+          clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: select;
+  -ms-grid-column-align: end;
+      justify-self: end;
+}
+
+main #content #overlayBody [class^="module-"][class$="-list"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1040,9 +1124,13 @@ main #content #overlayBody .module-product-list {
   gap: 1em;
 }
 
-main #content #overlayBody .module-product-list .module-product-card {
+main #content #overlayBody [class^="module-"][class$="-list"] [class^="module-"][class$="-card"] {
   display: -ms-grid;
   display: grid;
+  -ms-grid-columns: auto 1fr auto;
+      grid-template-columns: auto 1fr auto;
+  -webkit-column-gap: 1em;
+          column-gap: 1em;
       grid-template-areas: 'image name edit' 'image stock edit' 'image price edit';
   border-radius: 0.5em;
   background-color: white;
@@ -1051,7 +1139,7 @@ main #content #overlayBody .module-product-list .module-product-card {
   padding: 0.5em;
 }
 
-main #content #overlayBody .module-product-list .module-product-card picture {
+main #content #overlayBody [class^="module-"][class$="-list"] [class^="module-"][class$="-card"] picture {
   -ms-grid-row: 1;
   -ms-grid-row-span: 3;
   -ms-grid-column: 1;
@@ -1059,59 +1147,70 @@ main #content #overlayBody .module-product-list .module-product-card picture {
   border-radius: 0.2em;
 }
 
-main #content #overlayBody .module-product-list .module-product-card picture img {
+main #content #overlayBody [class^="module-"][class$="-list"] [class^="module-"][class$="-card"] picture img {
   max-width: 5em;
   min-height: 5em;
   border-radius: 0.2em;
 }
 
-main #content #overlayBody .module-product-list .module-product-card span {
+main #content #overlayBody [class^="module-"][class$="-list"] [class^="module-"][class$="-card"] span {
   color: #888888;
 }
 
-main #content #overlayBody .module-product-list .module-product-card .module-product__name {
+main #content #overlayBody [class^="module-"][class$="-list"] [class^="module-"][class$="-card"] [class^="module-"][class$="__name"] {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: name;
   color: #3d3dff;
+  text-align: left;
 }
 
-main #content #overlayBody .module-product-list .module-product-card .module-product__stock {
+main #content #overlayBody [class^="module-"][class$="-list"] [class^="module-"][class$="-card"] .module-product__stock {
   -ms-grid-row: 2;
   -ms-grid-column: 2;
   grid-area: stock;
 }
 
-main #content #overlayBody .module-product-list .module-product-card .module-product__price {
+main #content #overlayBody [class^="module-"][class$="-list"] [class^="module-"][class$="-card"] .module-product__price {
   -ms-grid-row: 3;
   -ms-grid-column: 2;
   grid-area: price;
 }
 
-main #content #overlayBody .module-product-list .module-product-card button.module-product__edit {
+main #content #overlayBody [class^="module-"][class$="-list"] [class^="module-"][class$="-card"] button[class^="module-"][class$="__edit"] {
   -ms-grid-row: 1;
   -ms-grid-row-span: 3;
   -ms-grid-column: 3;
   grid-area: edit;
   border: 0;
   background-color: transparent;
+  text-align: right;
 }
 
-main #content #overlayBody .module-product-list .module-product-card button.module-product__edit span {
+main #content #overlayBody [class^="module-"][class$="-list"] [class^="module-"][class$="-card"] button[class^="module-"][class$="__edit"] span {
   color: #3d3dff;
 }
 
-main #content #overlayBody .module-product-list button.module-product__add-product-button {
+main #content #overlayBody [class^="module-"][class$="-list"] a[class^="module-"][class*="__add-"][class$="-button"] {
+  position: absolute;
+  text-align: center;
+  text-decoration: none;
+  left: 50%;
+  bottom: 0;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  margin-bottom: 5em;
   background-color: #3d3dff;
   color: white;
   border: 0;
   border-radius: 2em;
-  width: 100%;
+  width: 90%;
   padding: 1em;
   grid-column: span 2;
+  cursor: pointer;
 }
 
-main #content #overlayBody .module-product-list button.module-product__add-product-button:hover {
+main #content #overlayBody [class^="module-"][class$="-list"] a[class^="module-"][class*="__add-"][class$="-button"]:hover {
   background-color: #8a8aff;
 }
 /*# sourceMappingURL=style.css.map */

@@ -93,10 +93,31 @@ const moduleProductTemplate = (product, productPrice) => `
 </div>
 `;
 
+const moduleCategoryTemplate = (category) => `
+<div class="module-category-card">
+  <span class="module-category__name" style="grid-column: span 2">${category}</span>
+  <button class="module-category__edit">
+    <span class="material-icons">edit_note</span>
+  </button>
+</div>
+`;
+
+const moduleCustomerTemplate = (customer) => `
+<div class="module-customer-card">
+  <span class="module-customer__name" style="grid-column: span 2">${customer.name}</span>
+  <span class="module-customer__phone" style="grid-column: span 2">${customer.phone}</span>
+  <button class="module-category__edit">
+    <span class="material-icons">edit_note</span>
+  </button>
+</div>
+`;
+
 export {
   transactionHistoryGroupTemplate,
   transactionHistoryCardTemplate,
   saleReportTableHeadTemplate,
   saleReportTableBodyTemplate,
   moduleProductTemplate,
+  moduleCategoryTemplate,
+  moduleCustomerTemplate,
 };

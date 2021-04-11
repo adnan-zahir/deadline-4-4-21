@@ -232,5 +232,24 @@
       "productModal": 10000,
       "stock": 8
     }
+  ],
+  "category_list": [
+    "Umum",
+    "Makanan",
+    "Minuman"
+  ],
+  "customer_list": [
+    {
+      "name": "Saya A",
+      "phone": "+62-895-xxxx-xx97"
+    },
+    {
+      "name": "Aku B",
+      "phone": "+62-895-xxxx-xx98"
+    },
+    {
+      "name": "Abdi C",
+      "phone": "+62-895-xxxx-xx99"
+    }
   ]
 }

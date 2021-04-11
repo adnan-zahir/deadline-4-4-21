@@ -1,8 +1,7 @@
-/* eslint-disable camelcase */
-import ModuleProductInitiator from '../../utils/module-product-initiator';
+import ModuleCategoryInitiator from '../../utils/module-category-initiator';
 
 /* eslint-disable no-underscore-dangle */
-const ManagementProduct = {
+const ManagementCategory = {
   async render() {
     return `
       <div id="overlayHeader">
@@ -10,25 +9,22 @@ const ManagementProduct = {
           <span class="material-icons">arrow_back</span>
         </button>
         <div class="overlay-title">
-          <h2>PRODUK BARANG</h2>
+          <h2>KATEGORI</h2>
         </div>
         <button class="open-search">
           <span class="material-icons">search</span>
         </button>
         <div class="kasir-search-container">
-          <input type="search" id="kasirSearch" placeholder="Cari barang"/>
+          <input type="search" id="kasirSearch" placeholder="Cari kategori"/>
         </div>
       </div>
       <div id="overlayBody">
-        <div class="module-product-list"></div>
+        <div class="module-category-list"></div>
       </div>
     `;
   },
 
   async afterRender() {
-    // eslint-disable-next-line global-require
-    const { product_list } = require('../../globals/DATA.json');
-
     const backBtn = document.querySelector('.overlay-back-button');
     // eslint-disable-next-line no-restricted-globals
     backBtn.addEventListener('click', () => history.back());
@@ -39,12 +35,15 @@ const ManagementProduct = {
     document.querySelector('#overlayBody')
       .addEventListener('click', () => kasirSearchContainer.classList.remove('open'));
 
-    ModuleProductInitiator.init({
-      container: document.querySelector('.module-product-list'),
-      products: product_list,
+    // eslint-disable-next-line global-require
+    const categoryList = require('../../globals/DATA.json').category_list;
+
+    ModuleCategoryInitiator.init({
+      container: document.querySelector('.module-category-list'),
+      categoryList,
       searchBar: document.querySelector('#kasirSearch'),
     });
   },
 };
 
-export default ManagementProduct;
+export default ManagementCategory;

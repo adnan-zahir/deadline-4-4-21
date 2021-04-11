@@ -821,6 +821,26 @@ main {
           color: #888888;
         }
 
+        .custom-select-container {
+          grid-column: span 2;
+        }
+
+        button {
+          border: 0;
+          border-radius: 10em;
+          padding: 0.5em;
+          background-color: #3d3dff;
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 0.8em;
+
+          &:hover {
+            background-color: #bbbbff;
+          }
+        }
+
         label.custom-input-container {
           grid-column: span 2;
           width: 100%;
@@ -869,15 +889,63 @@ main {
             background-color: lighten(#3d3dff, 15);
           }
         }
+
+        .custom-select-container {
+          position: relative;
+          width: 100%;
+          box-shadow: 0 0 2px lightgray;
+          border-radius: 0.2em;
+          padding: 1.5em 0.5em 0 0.5em;
+          cursor: pointer;
+          background-color: white;
+          display: grid;
+          grid-template-areas: 'select';
+          align-items: center;
+
+          label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 0.5em;
+            font-size: 0.8em;
+            color: #0000aa;
+          }
+
+          select.custom-select {
+            appearance: none;
+            background-color: transparent;
+            border: 0;
+            padding-right: 1em;
+            width: 100%;
+            outline: none;
+            grid-area: select;
+          }
+
+          select::-ms-expand {
+            display: none;
+          }
+
+          &::after {
+            content: '';
+            width: 0.8em;
+            height: 0.5em;
+            background-color: #0000aa;
+            clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+            grid-area: select;
+            justify-self: end;
+          }
+        }
       }
 
-      .module-product-list {
+      [class^="module-"][class$="-list"] {
         display: flex;
         flex-direction: column;
         gap: 1em;
 
-        .module-product-card {
+        [class^="module-"][class$="-card"] {
           display: grid;
+          grid-template-columns: auto 1fr auto;
+          column-gap: 1em;
           grid-template-areas:
             'image name edit'
             'image stock edit'
@@ -902,9 +970,10 @@ main {
             color: #888888;
           }
           
-          .module-product__name {
+          [class^="module-"][class$="__name"] {
             grid-area: name;
             color: #3d3dff;
+            text-align: left;
           }
   
           .module-product__stock {
@@ -915,10 +984,11 @@ main {
             grid-area: price;
           }
   
-          button.module-product__edit {
+          button[class^="module-"][class$="__edit"] {
             grid-area: edit;
             border: 0;
             background-color: transparent;
+            text-align: right;
   
             span {
             color: #3d3dff;
@@ -926,14 +996,22 @@ main {
           }
         }
 
-        button.module-product__add-product-button {
+        a[class^="module-"][class*="__add-"][class$="-button"] {
+          position: absolute;
+          text-align: center;
+          text-decoration: none;
+          left: 50%;
+          bottom: 0;
+          transform: translateX(-50%);
+          margin-bottom: 5em;
           background-color: #3d3dff;
           color: white;
           border: 0;
           border-radius: 2em;
-          width: 100%;
+          width: 90%;
           padding: 1em;
           grid-column: span 2;
+          cursor: pointer;
 
           &:hover {
             background-color: lighten(#3d3dff, 15);

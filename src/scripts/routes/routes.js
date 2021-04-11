@@ -15,6 +15,11 @@ import ChangePass from '../views/overlays/change-pass';
 import ChangePin from '../views/overlays/change-pin';
 import ForgotPin from '../views/overlays/forgot-pin';
 import ManagementProduct from '../views/overlays/management-product';
+import AddProduct from '../views/overlays/add-product';
+import ManagementCategory from '../views/overlays/management-category';
+import AddCategory from '../views/overlays/add-category';
+import ManagementCustomer from '../views/overlays/management-customer';
+import AddCustomer from '../views/overlays/add-customer';
 
 const routes = {
   // PAGES
@@ -30,8 +35,11 @@ const routes = {
   '/home&kasir': Kasir,
   '/transaction&debt': Debt,
   '/management&modul_produk': ManagementProduct,
-  // manajemen kategori
-  // manajemen pelanggan
+  '/management&add_produk': AddProduct,
+  '/management&modul_kategori': ManagementCategory,
+  '/management&add_kategori': AddCategory,
+  '/management&modul_pelanggan': ManagementCustomer,
+  '/management&add_pelanggan': AddCustomer,
   '/account&personal_data': PersonalData,
   '/account&change_email': ChangeEmail,
   '/account&change_phone': ChangePhone,
